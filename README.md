@@ -90,7 +90,7 @@
    
 七. 使用
     
-   符合JSR107规范，Demo
+  Demo
    ```java
    
    
