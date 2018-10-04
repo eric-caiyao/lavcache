@@ -178,5 +178,10 @@
         LavCacheLauncher launcher=new LavCacheLauncher();
         launcher.load();
    ```
+八. In the future
 
+    In the future,lavcache will support invoke by SpringFramework style.Bring the document to completion.
+    And I wish more and more developer who interested in this tools and like open source activities join us.
+    You can contract me with open a issue in github or send a mail to me,Rick,L-Angel(lonelyangel.jcw@gmail.com)
+     
  
