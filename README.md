@@ -98,7 +98,9 @@
 六. 相关说明
    1. 缓存key生成规则（大写），无参Piece=PREFIX，有参Piece=PREFIX://FIELD1=VAL1;FIELD2=VAL2;
       其中FIELD1，FIELD2 为 com.langel.lavcache.annotation.PieceKey 中field字段
+   
    2. 线程
+   
       Cache运行过程中会启动两组线程
       - lavcache-single-schedule-thread （threadSize:1）
       
