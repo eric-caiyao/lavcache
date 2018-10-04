@@ -1,5 +1,5 @@
 #### LavCahce
-====
+
 
 > **Introduction**:  LavCache是一款可以支持现有场景的缓存框架，支持自定义存储媒介、项目初始化加载、过期重试、访问统计等多种特性，
 > 并且支持yml文件配置。技术水平有限，欢迎各位大佬批评指正([lonelyangel.jcw@gmail.com](mailto:lonelyangel.jcw@gmail.com))
@@ -28,19 +28,23 @@
   * resouces/lavcache.yml
    ```yaml
     cache   :
-      - name   : "DefaultCache" # same as sector name
-        expire : 100   # ms
+      - name   : "DemoCustomizeCache" # same as sector name
+        expire : 60000   # ms
         record : false # cache visited log
-        autoreload : false # switch which used to auto reload cache
-        impl   : com.langel.customize.RestRedisCache.class # class name with implement Cache interface.
+        autoreload : true # switch which used to auto reload cache
+        impl   : com.langel.lavcache.mock.DemoCustomizeCache # class name with implement Cache interface.
     
     preload :
-      - mock # sector class name with need preload
+      - com.langel.lavcache.mock.MySector # sector class name with need preload
+      - com.langel.lavcache.mock.DemoSector
     
-    redis   :
+    sectors :
+      #- com.langel.lavcache.DemoSector
+    
+    redis   : # Beta，is not a release feature
       ip : 127.0.0.1
       host : 6379
-  ```
+   ```
   
 三. 缓存过期
 

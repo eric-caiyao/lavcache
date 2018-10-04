@@ -12,7 +12,7 @@ preload :
 sectors :
   #- com.langel.lavcache.DemoSector
 
-redis   :
+redis   : # Beta，is not a release feature
   ip : 127.0.0.1
   host : 6379
 
