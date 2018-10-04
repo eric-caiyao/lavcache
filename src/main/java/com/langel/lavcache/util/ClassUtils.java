@@ -1,8 +1,11 @@
 package com.langel.lavcache.util;
 
 import com.langel.lavcache.annotation.Piece;
+import com.langel.lavcache.sector.Sector;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,5 +26,21 @@ public class ClassUtils {
             }
         }
         return annotatedMethods;
+    }
+
+    public static boolean isImplement(Class originCls, Class targetCls) {
+        boolean flag = false;
+        Class superClass = originCls.getSuperclass();
+        while (!superClass.equals(Object.class)) {
+            if (Arrays.asList(superClass.getInterfaces()).contains(targetCls)) {
+                flag = true;
+            }
+            superClass = superClass.getSuperclass();
+        }
+        return flag;
+    }
+
+    public static boolean isAnnotated(Class origin, Class<? extends Annotation> anno) {
+        return origin.getAnnotation(anno) != null;
     }
 }

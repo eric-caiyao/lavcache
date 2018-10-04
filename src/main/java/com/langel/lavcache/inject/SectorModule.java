@@ -1,9 +1,11 @@
 package com.langel.lavcache.inject;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Singleton;
 import com.google.inject.matcher.Matchers;
 import com.langel.lavcache.annotation.Erase;
 import com.langel.lavcache.annotation.Piece;
+import com.langel.lavcache.piece.PieceLoader;
 
 /**
  * @author L-Angel,Rick(lonelyangel.jcw@gmail.com)
@@ -20,5 +22,6 @@ public class SectorModule extends AbstractModule {
         SectorInterceptor sectorInterceptor = new SectorInterceptor();
         bindInterceptor(Matchers.any(), Matchers.annotatedWith(Piece.class), sectorInterceptor);
         bindInterceptor(Matchers.any(), Matchers.annotatedWith(Erase.class), sectorInterceptor);
+        bind(PieceLoader.class).in(Singleton.class);
     }
 }

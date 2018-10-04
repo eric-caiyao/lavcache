@@ -19,7 +19,6 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author L-Angel,Rick(lonelyangel.jcw@gamil.com)
  * @date 2018/9/27 下午8:46
  **/
-@Singleton
 public class PieceLoader {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PieceLoader.class);

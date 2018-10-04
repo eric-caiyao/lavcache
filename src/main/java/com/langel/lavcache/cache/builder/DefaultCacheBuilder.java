@@ -7,12 +7,16 @@ import com.langel.lavcache.cache.config.DefaultCacheConfig;
 import com.langel.lavcache.cache.support.ConcurrentMapCache;
 import com.langel.lavcache.inject.SectorInjector;
 import com.langel.lavcache.util.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author L-Angel,Rick(lonelyangel.jcw@gamil.com)
  * @date 2018/9/20
  **/
 public class DefaultCacheBuilder implements CacheBuilder {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(CacheBuilder.class);
 
     private static final String DEFAULT_CACHE_NAME = "DEFAULT_CACHE";
 
@@ -42,6 +46,8 @@ public class DefaultCacheBuilder implements CacheBuilder {
         Cache cache = SectorInjector.getInstance(this.cacheType);
         if (cache == null) {
             cache = SectorInjector.getInstance(ConcurrentMapCache.class);
+            LOGGER.error("{} is not found in jvm. sys will load default cache with {}",
+                    this.cacheType.getName(), ConcurrentMapCache.class);
         }
         return new CacheWrapper(this.name, cache, this.config);
 
@@ -61,6 +67,7 @@ public class DefaultCacheBuilder implements CacheBuilder {
 
     @Override
     public CacheBuilder setConfig(CacheConfig config) {
-        return null;
+        this.config = config;
+        return this;
     }
 }

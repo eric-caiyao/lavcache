@@ -20,11 +20,11 @@ public class ObjectLauncherTest {
     @Test
     public void loadTest() {
         try {
-            Class<? extends Cache> cls = ObjectLauncher.load(null);
+            Class<? extends Cache> cls = ObjectLauncher.loadCache(null);
             Assert.assertNotNull(cls);
-            cls = ObjectLauncher.load("");
+            cls = ObjectLauncher.loadCache("");
             Assert.assertNotNull(cls);
-            cls = ObjectLauncher.load("com.lavcache.Test");
+            cls = ObjectLauncher.loadCache("com.lavcache.Test");
             Assert.assertNotNull(cls);
         } catch (Exception ex) {
             Assert.assertTrue(ex instanceof LavCacheException);

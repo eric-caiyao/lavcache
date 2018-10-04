@@ -24,7 +24,7 @@ public class DefaultYamlCacheBuilder extends DefaultCacheBuilder implements Yaml
                 new CustomizeCacheConfig(this.config.getExpire(), this.config.isRecord(), this.config.isAutoreload());
         try {
             super.setName(this.config.getName())
-                    .setCacheType(ObjectLauncher.load(config.getImpl()))
+                    .setCacheType(ObjectLauncher.loadCache(config.getImpl()))
                     .setConfig(cacheConfig);
         } catch (LavCacheException e) {
             LOGGER.error(e.getMessage(), e);

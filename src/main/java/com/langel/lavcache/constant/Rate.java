@@ -4,7 +4,7 @@ package com.langel.lavcache.constant;
  * @author L-Angel,Rick(lonelyangel.jcw@gamil.com)
  * @date 2018/9/30 11:18 AM
  **/
-public interface Delay {
+public interface Rate {
 
     long MIL = 1;
 

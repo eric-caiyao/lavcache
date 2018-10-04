@@ -1,7 +1,7 @@
 package com.langel.lavcache.job;
 
 import com.langel.lavcache.Container;
-import com.langel.lavcache.constant.Delay;
+import com.langel.lavcache.constant.Rate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,7 +17,7 @@ public class CacheClearJob implements Job {
     public void run() {
         Container.INSTANCE.sectorMap().values().forEach(v -> {
 
-            v.expire(v.expire() - Delay.MIN);
+            v.expire(v.expire() - Rate.MIN);
             if (v.expire() <= 0) {
                 v.pieceMap().values().forEach(p -> {
                     p.needReload(true);

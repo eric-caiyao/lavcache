@@ -29,11 +29,11 @@ public class LavExecutorServiceFactory {
             THREAD_FACTORY);
 
     private static ExecutorService SINGLE_SERVICE = Executors.newSingleThreadExecutor(r -> {
-        return new Thread(r, "lavacache-single-thread");
+        return new Thread(r, "lavcache-single-thread");
     });
 
     private static ScheduledExecutorService SCHEDULE_SERVICE = Executors.newSingleThreadScheduledExecutor(r -> {
-        return new Thread(r, "lavacache-single-schdule-thread");
+        return new Thread(r, "lavcache-single-schedule-thread");
     });
 
 

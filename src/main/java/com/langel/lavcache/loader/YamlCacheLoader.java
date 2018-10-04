@@ -14,7 +14,6 @@ public class YamlCacheLoader implements Loader {
 
     @Override
     public boolean load() throws Throwable {
-
         if (CollectionUtils.isNullOrEmpty(YamlPool.INSTANCE.caches())) {
             return true;
         }
