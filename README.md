@@ -15,10 +15,10 @@
   1. 特定名词
  
      - **Piece:** 对于执行缓存的Method的称呼，缓存执行的单位
-     - **Sector:** 管理一组Piece，同一个Sector下面的Piece使用同一个Cache实例
+     - **Sector:** 管理一组Piece，同一个Sector下面的Piece使用同一个Cache实例，突破了类文件的隔离
      - **Container:** 管理Sector 
      - **CachePool:** 管理Cache，内部CacheName与Sector Name一致，通过两个Name进行匹配
-  2. LavCacache中缓存的管理和Sectors的管理时独立的，通过CacheName与SectorName匹配来进行组合，
+  2. LavCache中缓存的管理和Sectors的管理是独立的，通过CacheName与SectorName匹配来进行组合，
     在Preload的场景下可能会出现先加载缓存然后BuildCache，然后缓存使用默认的ConcurrentCache的情况，开发需要保证调用顺序
   3. 特性
      
